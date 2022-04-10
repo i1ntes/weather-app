@@ -11,7 +11,7 @@
 		AA3F57CC27FC9C3400B49CE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F57CB27FC9C3400B49CE4 /* AppDelegate.swift */; };
 		AA3F57CE27FC9C3400B49CE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F57CD27FC9C3400B49CE4 /* SceneDelegate.swift */; };
 		AA3F57D027FC9C3400B49CE4 /* WeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3F57CF27FC9C3400B49CE4 /* WeatherListViewController.swift */; };
-		AA3F57D327FC9C3400B49CE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3F57D127FC9C3400B49CE4 /* Main.storyboard */; };
+		AA3F57D327FC9C3400B49CE4 /* WeatherListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3F57D127FC9C3400B49CE4 /* WeatherListViewController.storyboard */; };
 		AA3F57D527FC9C3800B49CE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA3F57D427FC9C3800B49CE4 /* Assets.xcassets */; };
 		AA3F57D827FC9C3800B49CE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3F57D627FC9C3800B49CE4 /* LaunchScreen.storyboard */; };
 		AAF1FF0227FF2EFD009A6028 /* WeatherListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1FF0127FF2EFD009A6028 /* WeatherListModel.swift */; };
@@ -26,7 +26,7 @@
 		AA3F57CB27FC9C3400B49CE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA3F57CD27FC9C3400B49CE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AA3F57CF27FC9C3400B49CE4 /* WeatherListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListViewController.swift; sourceTree = "<group>"; };
-		AA3F57D227FC9C3400B49CE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA3F57D227FC9C3400B49CE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WeatherListViewController.storyboard; sourceTree = "<group>"; };
 		AA3F57D427FC9C3800B49CE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA3F57D727FC9C3800B49CE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA3F57D927FC9C3800B49CE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 			children = (
 				AA3F57CF27FC9C3400B49CE4 /* WeatherListViewController.swift */,
 				AAF1FF0527FF30AC009A6028 /* WeatherListViewInputDelegate.swift */,
-				AA3F57D127FC9C3400B49CE4 /* Main.storyboard */,
+				AA3F57D127FC9C3400B49CE4 /* WeatherListViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,7 +210,7 @@
 			files = (
 				AA3F57D827FC9C3800B49CE4 /* LaunchScreen.storyboard in Resources */,
 				AA3F57D527FC9C3800B49CE4 /* Assets.xcassets in Resources */,
-				AA3F57D327FC9C3400B49CE4 /* Main.storyboard in Resources */,
+				AA3F57D327FC9C3400B49CE4 /* WeatherListViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,12 +275,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AA3F57D127FC9C3400B49CE4 /* Main.storyboard */ = {
+		AA3F57D127FC9C3400B49CE4 /* WeatherListViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AA3F57D227FC9C3400B49CE4 /* Base */,
 			);
-			name = Main.storyboard;
+			name = WeatherListViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		AA3F57D627FC9C3800B49CE4 /* LaunchScreen.storyboard */ = {
@@ -420,7 +420,7 @@
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = WeatherListViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -449,7 +449,7 @@
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = WeatherListViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
