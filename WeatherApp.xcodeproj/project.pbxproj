@@ -69,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				AA20871A28032F9D009E31ED /* WeatherList */,
-				AA3F57CA27FC9C3400B49CE4 /* WeatherApp */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -87,6 +86,7 @@
 		AA3F57BF27FC9C3400B49CE4 = {
 			isa = PBXGroup;
 			children = (
+				AA3F57CA27FC9C3400B49CE4 /* WeatherApp */,
 				AA20871928032F69009E31ED /* Modules */,
 				AA3F57C927FC9C3400B49CE4 /* Products */,
 				659BCE1CA8C3F7A3E87A116D /* Pods */,
@@ -107,8 +107,8 @@
 			children = (
 				AAF1FEFF27FF2DEE009A6028 /* App */,
 				AA3F57D427FC9C3800B49CE4 /* Assets.xcassets */,
-				AA3F57D627FC9C3800B49CE4 /* LaunchScreen.storyboard */,
 				AA3F57D927FC9C3800B49CE4 /* Info.plist */,
+				AA3F57D627FC9C3800B49CE4 /* LaunchScreen.storyboard */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
