@@ -8,12 +8,22 @@
 import UIKit
 
 class WeatherListViewController: UIViewController {
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setNavigationController()
     }
-
-
+    
+    private func setNavigationController() {
+        title = "Weather"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: nil
+        )
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 }
 
