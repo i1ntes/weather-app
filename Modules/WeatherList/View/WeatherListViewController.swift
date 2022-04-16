@@ -11,6 +11,7 @@ class WeatherListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let city = ["Penza", "Moscow", "SPB"]
+    let degrees = ["0", "5", "20", "10", "-15"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,17 @@ class WeatherListViewController: UIViewController {
 
 extension WeatherListViewController: UITableViewDataSource {
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        "cities"
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
         case self.tableView:
@@ -45,11 +57,8 @@ extension WeatherListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
         cell.cityLabel.text = self.city[indexPath.row]
+        cell.degreesLabel.text = "\(self.degrees.randomElement()!)ºC"
         return cell
     }
 }
-
-
-
-
 
