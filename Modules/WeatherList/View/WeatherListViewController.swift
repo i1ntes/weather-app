@@ -38,6 +38,14 @@ extension WeatherListViewController: UITableViewDataSource {
         "cities"
     }
     
+//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//
+//        let header = view as! UITableViewHeaderFooterView
+//
+//        header.backgroundColor = UIColor.systemGray
+//        
+//    }
+    
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
