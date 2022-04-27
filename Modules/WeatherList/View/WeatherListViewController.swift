@@ -13,12 +13,17 @@ class WeatherListViewController: UIViewController {
     let city = ["Penza", "Moscow", "SPB"]
     let degrees = ["0", "5", "20", "10", "-15"]
     
+    private var presenter: WeatherListViewOutput?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter = WeatherListPresenter(view: self)
         
         setNavigationController()
         tableView.register(UINib.init(nibName: "WeatherCell", bundle: nil), forCellReuseIdentifier: "WeatherCell")
         tableView.dataSource = self
+        presenter?.viewDidLoad()
     }
     
     private func setNavigationController() {
@@ -37,14 +42,6 @@ extension WeatherListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         "cities"
     }
-    
-//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//
-//        let header = view as! UITableViewHeaderFooterView
-//
-//        header.backgroundColor = UIColor.systemGray
-//        
-//    }
     
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
@@ -70,3 +67,6 @@ extension WeatherListViewController: UITableViewDataSource {
     }
 }
 
+extension WeatherListViewController: WeatherListViewInput {
+    
+}
