@@ -8,9 +8,13 @@
 import Foundation
 
 protocol WeatherListViewInput: AnyObject {
-    
+    func update(with model: WeatherListMO)
 }
 
 protocol WeatherListViewOutput {
     func viewDidLoad()
+}
+
+protocol WeatherListModelProtocol {
+    func getModel(response: [String: Any]) -> WeatherListMO?
 }

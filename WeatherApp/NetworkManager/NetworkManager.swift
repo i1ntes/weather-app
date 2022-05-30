@@ -10,30 +10,19 @@ import Alamofire
 
 class NetworkManager {
     
-    enum Consts: Error {
-        static let error = "error"
+    private enum Consts {
+        static let baseURL = "https://api.weatherapi.com/v1"
     }
-    
-    enum Result {
-        case success
-        case failere(String)
-    }
-    
-    
-    let baseURL = "https://api.weatherapi.com/v1"
-    let apiKey = "f29cc468a6044a168b8161048221604"
-    let forecast = "forecast.json?"
-    let city = "London"
     
     func sendRequest(
         request: Request,
         success: @escaping (([String: Any]?) -> Void),
         failure: @escaping ((String) -> Void)
     ) {
-        let url = "\(baseURL)/\(request.url)"
+        let url = "\(Consts.baseURL)/\(request.url)"
         let request = AF.request(
             url,
-            method: .get,
+            method: request.method,
             parameters: request.parameters
         )
         request.responseJSON { response in

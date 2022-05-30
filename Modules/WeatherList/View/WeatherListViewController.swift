@@ -10,15 +10,14 @@ import UIKit
 class WeatherListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    let city = ["Penza", "Moscow", "SPB"]
-    let degrees = ["0", "5", "20", "10", "-15"]
+    private var data = [WeatherListMO]()
     
     private var presenter: WeatherListViewOutput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter = WeatherListPresenter(view: self)
+        presenter = WeatherListPresenter(view: self, model: WeatherListModel())
         
         setNavigationController()
         tableView.register(UINib.init(nibName: "WeatherCell", bundle: nil), forCellReuseIdentifier: "WeatherCell")
@@ -51,22 +50,20 @@ extension WeatherListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch tableView {
-        case self.tableView:
-            return self.city.count
-        default:
-            return 0
-        }
+        return data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
-        cell.cityLabel.text = self.city[indexPath.row]
-        cell.degreesLabel.text = "\(self.degrees.randomElement()!)ºC"
+        cell.cityLabel.text = data[indexPath.row].location?.name ?? ""
+        cell.degreesLabel.text = "\(Int(data[indexPath.row].temperature?.temp ?? 0))ºC"
         return cell
     }
 }
 
 extension WeatherListViewController: WeatherListViewInput {
-    
+    func update(with model: WeatherListMO) {
+        data.append(model)
+        tableView.reloadData()
+    }
 }
