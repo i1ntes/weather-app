@@ -13,7 +13,7 @@ class WeatherListPresenter {
         static let baseURL = "https://api.weatherapi.com/v1"
         static let apiKey = "f29cc468a6044a168b8161048221604"
         static let forecast = "forecast.json?"
-        static let city = "London"
+        static let city = "Penza"
     }
     
     private weak var view: WeatherListViewInput?
@@ -37,11 +37,14 @@ class WeatherListPresenter {
     private func successBlock(_ response: [String: Any]?) {
         guard let response = response,
               let model = model.getModel(response: response) else { return }
+        view?.stopActivityIndicator()
         view?.update(with: model)
     }
     
     private func failureBlock(_ errorMsg: String?) {
         guard let _ = errorMsg else { return }
+        view?.stopActivityIndicator()
+        view?.showErrorMsg()
     }
 }
 

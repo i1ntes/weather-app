@@ -9,6 +9,7 @@ import UIKit
 
 class WeatherListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     private var data = [WeatherListMO]()
     
@@ -33,6 +34,22 @@ class WeatherListViewController: UIViewController {
             action: nil
         )
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func startActivityIndicator() {
+        loader.startAnimating()
+    }
+    
+    func stopActivityIndicator() {
+        loader.stopAnimating()
+        loader.hidesWhenStopped = true
+    }
+    
+    func showErrorMsg() {
+        let errorMsg = UIAlertController(title: "Error", message: "Powel nahuy, bidla", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        errorMsg.addAction(action)
+        self.present(errorMsg, animated: true)
     }
 }
 
@@ -62,6 +79,7 @@ extension WeatherListViewController: UITableViewDataSource {
 }
 
 extension WeatherListViewController: WeatherListViewInput {
+    
     func update(with model: WeatherListMO) {
         data.append(model)
         tableView.reloadData()

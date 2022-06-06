@@ -9,6 +9,9 @@ import Foundation
 
 protocol WeatherListViewInput: AnyObject {
     func update(with model: WeatherListMO)
+    func stopActivityIndicator()
+    func startActivityIndicator()
+    func showErrorMsg()
 }
 
 protocol WeatherListViewOutput {
@@ -18,3 +21,4 @@ protocol WeatherListViewOutput {
 protocol WeatherListModelProtocol {
     func getModel(response: [String: Any]) -> WeatherListMO?
 }
+
