@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class WeatherListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -36,6 +37,11 @@ class WeatherListViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+//    @objc func plusButtonTapped() {
+//        let vc = LocationSelectorView()
+//        navigationController?.present(vc, animated: true)
+//    }
+    
     func startActivityIndicator() {
         loader.startAnimating()
     }
@@ -62,7 +68,7 @@ extension WeatherListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = .red
+//        view.backgroundColor = .red
         return view
     }
     
@@ -72,8 +78,11 @@ extension WeatherListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
+        let shittyUrl = "https://\(String(data[indexPath.row].temperature?.condition?.icon ?? "").dropFirst(2))"
+        guard let url = URL(string: shittyUrl) else { return cell }
         cell.cityLabel.text = data[indexPath.row].location?.name ?? ""
         cell.degreesLabel.text = "\(Int(data[indexPath.row].temperature?.temp ?? 0))ºC"
+        cell.weatherIcon.sd_setImage(with: url, completed: nil)
         return cell
     }
 }

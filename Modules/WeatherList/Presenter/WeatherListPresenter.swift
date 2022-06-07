@@ -13,7 +13,7 @@ class WeatherListPresenter {
         static let baseURL = "https://api.weatherapi.com/v1"
         static let apiKey = "f29cc468a6044a168b8161048221604"
         static let forecast = "forecast.json?"
-        static let city = "Penza"
+        static let city = "Siberia"
     }
     
     private weak var view: WeatherListViewInput?
