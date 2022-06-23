@@ -15,7 +15,6 @@ class LocationSelectorViewController: UIViewController {
     
     private var presenter: LocationSelectorViewOutput?
     var firstScreen: ModuleOutput?
-    var city: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +36,6 @@ class LocationSelectorViewController: UIViewController {
         if newCity == "" {
             showErrorMsg()
         } else {
-            city = newCity
-            firstScreen?.addCity(city: city ?? "Penza")
             dismiss(animated: true)
         }
     }
