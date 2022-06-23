@@ -29,18 +29,19 @@ class WeatherListViewController: UIViewController {
     
     private func setNavigationController() {
         title = "Weather"
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
-            action: nil
+            action: #selector(addButtonTapped)
         )
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-//    @objc func plusButtonTapped() {
-//        let vc = LocationSelectorView()
-//        navigationController?.present(vc, animated: true)
-//    }
+    @objc func addButtonTapped() {
+        let storyboard = UIStoryboard(name: "LocationSelector", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SecondScreen")
+        self.present(vc, animated: true)
+    }
     
     func startActivityIndicator() {
         loader.startAnimating()

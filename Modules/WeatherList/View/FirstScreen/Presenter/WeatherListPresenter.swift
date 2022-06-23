@@ -13,12 +13,13 @@ class WeatherListPresenter {
         static let baseURL = "https://api.weatherapi.com/v1"
         static let apiKey = "f29cc468a6044a168b8161048221604"
         static let forecast = "forecast.json?"
-        static let city = "Siberia"
+        static var city = "Penza"
     }
     
     private weak var view: WeatherListViewInput?
     private let model: WeatherListModelProtocol
     private let networkManager = NetworkManager()
+    let secondScreen = LocationSelectorViewController()
     
     init(view: WeatherListViewInput, model: WeatherListModelProtocol) {
         self.view = view
@@ -48,9 +49,17 @@ class WeatherListPresenter {
     }
 }
 
+extension WeatherListPresenter: ModuleOutput {
+    func addCity(city: String) {
+        Consts.city = secondScreen.city ?? "Penza"
+        print(Consts.city)
+        }
+}
+
 extension WeatherListPresenter: WeatherListViewOutput {
     
     func viewDidLoad() {
         getData()
+        addCity(city: Consts.city)
     }
 }

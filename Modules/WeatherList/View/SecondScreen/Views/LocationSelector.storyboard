@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Location Selector View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SecondScreen" id="Y6W-OH-hqX" customClass="LocationSelectorViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OwW-Lo-pPG">
+                                <rect key="frame" x="20" y="188" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Add City" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcF-vC-DR1">
+                                <rect key="frame" x="20" y="140" width="110" height="31.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRg-C7-T6w">
+                                <rect key="frame" x="20" y="44" width="69" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="c6u-dw-wR7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xts-cv-Ftr">
+                                <rect key="frame" x="173" y="230" width="69" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Search"/>
+                                <connections>
+                                    <action selector="searchButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SWH-DU-siZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HRg-C7-T6w" firstAttribute="leading" secondItem="TcF-vC-DR1" secondAttribute="leading" id="0bq-mq-22V"/>
+                            <constraint firstItem="OwW-Lo-pPG" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" id="24U-xo-ZA2"/>
+                            <constraint firstItem="TcF-vC-DR1" firstAttribute="leading" secondItem="OwW-Lo-pPG" secondAttribute="leading" id="DLU-t1-kPR"/>
+                            <constraint firstItem="xts-cv-Ftr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="173" id="Hih-S5-g4K"/>
+                            <constraint firstItem="HRg-C7-T6w" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" id="Ig9-XO-xUv"/>
+                            <constraint firstItem="xts-cv-Ftr" firstAttribute="top" secondItem="OwW-Lo-pPG" secondAttribute="bottom" constant="8" symbolic="YES" id="IqT-jT-ddc"/>
+                            <constraint firstItem="HRg-C7-T6w" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="NNC-6b-UAG"/>
+                            <constraint firstItem="HRg-C7-T6w" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="dOE-qu-R0Z"/>
+                            <constraint firstItem="OwW-Lo-pPG" firstAttribute="top" secondItem="TcF-vC-DR1" secondAttribute="bottom" constant="16.5" id="h12-dl-pdx"/>
+                            <constraint firstItem="TcF-vC-DR1" firstAttribute="top" secondItem="HRg-C7-T6w" secondAttribute="bottom" constant="65" id="mT5-J8-Eiq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="SelectorTF" destination="OwW-Lo-pPG" id="hNs-E0-GPf"/>
+                        <outlet property="cancelButton" destination="HRg-C7-T6w" id="dht-zK-ffa"/>
+                        <outlet property="titleLabel" destination="TcF-vC-DR1" id="ar3-CM-pGA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="84.375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

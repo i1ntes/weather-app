@@ -22,3 +22,6 @@ protocol WeatherListModelProtocol {
     func getModel(response: [String: Any]) -> WeatherListMO?
 }
 
+protocol ModuleOutput {
+    func addCity(city: String)
+}

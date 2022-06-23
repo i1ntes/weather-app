@@ -21,7 +21,9 @@
 		AA9E29952816FBF00052F2A0 /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9E29942816FBF00052F2A0 /* HTTPMethods.swift */; };
 		AA9E2997281715D30052F2A0 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9E2996281715D30052F2A0 /* Request.swift */; };
 		AAAC1C39284F9C4D0045A4B1 /* LocationSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAAC1C38284F9C4D0045A4B1 /* LocationSelector.storyboard */; };
-		AAAC1C3B284F9C990045A4B1 /* LocationSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC1C3A284F9C990045A4B1 /* LocationSelectorView.swift */; };
+		AAAC1C3B284F9C990045A4B1 /* LocationSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC1C3A284F9C990045A4B1 /* LocationSelectorViewController.swift */; };
+		AAAC1C3E28510ADA0045A4B1 /* LocationSelectorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC1C3D28510ADA0045A4B1 /* LocationSelectorPresenter.swift */; };
+		AAAC1C4128510BAB0045A4B1 /* LocationSelectorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC1C4028510BAB0045A4B1 /* LocationSelectorProtocol.swift */; };
 		AAF1FF0227FF2EFD009A6028 /* WeatherListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1FF0127FF2EFD009A6028 /* WeatherListModel.swift */; };
 		AAF1FF0427FF3046009A6028 /* WeatherListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1FF0327FF3046009A6028 /* WeatherListPresenter.swift */; };
 		AAF1FF0627FF30AC009A6028 /* WeatherListViewInputDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1FF0527FF30AC009A6028 /* WeatherListViewInputDelegate.swift */; };
@@ -45,7 +47,9 @@
 		AA9E29942816FBF00052F2A0 /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
 		AA9E2996281715D30052F2A0 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		AAAC1C38284F9C4D0045A4B1 /* LocationSelector.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationSelector.storyboard; sourceTree = "<group>"; };
-		AAAC1C3A284F9C990045A4B1 /* LocationSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectorView.swift; sourceTree = "<group>"; };
+		AAAC1C3A284F9C990045A4B1 /* LocationSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectorViewController.swift; sourceTree = "<group>"; };
+		AAAC1C3D28510ADA0045A4B1 /* LocationSelectorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectorPresenter.swift; sourceTree = "<group>"; };
+		AAAC1C4028510BAB0045A4B1 /* LocationSelectorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectorProtocol.swift; sourceTree = "<group>"; };
 		AAF1FF0127FF2EFD009A6028 /* WeatherListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListModel.swift; sourceTree = "<group>"; };
 		AAF1FF0327FF3046009A6028 /* WeatherListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListPresenter.swift; sourceTree = "<group>"; };
 		AAF1FF0527FF30AC009A6028 /* WeatherListViewInputDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListViewInputDelegate.swift; sourceTree = "<group>"; };
@@ -103,9 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				AA9E299228145D9F0052F2A0 /* WeatherListProtocol.swift */,
-				AAF1FEFD27FF2DC9009A6028 /* Model */,
 				AAF1FEFE27FF2DD8009A6028 /* View */,
-				AAF1FF0027FF2E0C009A6028 /* Presenter */,
 			);
 			path = WeatherList;
 			sourceTree = "<group>";
@@ -120,8 +122,10 @@
 		AA2BA5E128143ABB001D2EBF /* FirstScreen */ = {
 			isa = PBXGroup;
 			children = (
+				AAF1FEFD27FF2DC9009A6028 /* Model */,
 				AAAC1C36284F9B610045A4B1 /* Views */,
 				AA3B8E1C28049B4A00FD5B05 /* Cells */,
+				AAF1FF0027FF2E0C009A6028 /* Presenter */,
 			);
 			path = FirstScreen;
 			sourceTree = "<group>";
@@ -180,10 +184,28 @@
 		AAAC1C37284F9BD40045A4B1 /* SecondScreen */ = {
 			isa = PBXGroup;
 			children = (
-				AAAC1C38284F9C4D0045A4B1 /* LocationSelector.storyboard */,
-				AAAC1C3A284F9C990045A4B1 /* LocationSelectorView.swift */,
+				AAAC1C4028510BAB0045A4B1 /* LocationSelectorProtocol.swift */,
+				AAAC1C3F28510AF70045A4B1 /* Views */,
+				AAAC1C3C28510AAE0045A4B1 /* Presenter */,
 			);
 			path = SecondScreen;
+			sourceTree = "<group>";
+		};
+		AAAC1C3C28510AAE0045A4B1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AAAC1C3D28510ADA0045A4B1 /* LocationSelectorPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		AAAC1C3F28510AF70045A4B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AAAC1C38284F9C4D0045A4B1 /* LocationSelector.storyboard */,
+				AAAC1C3A284F9C990045A4B1 /* LocationSelectorViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		AAF1FEFD27FF2DC9009A6028 /* Model */ = {
@@ -339,13 +361,15 @@
 			files = (
 				AA9E29952816FBF00052F2A0 /* HTTPMethods.swift in Sources */,
 				AAF1FF0627FF30AC009A6028 /* WeatherListViewInputDelegate.swift in Sources */,
-				AAAC1C3B284F9C990045A4B1 /* LocationSelectorView.swift in Sources */,
+				AAAC1C3B284F9C990045A4B1 /* LocationSelectorViewController.swift in Sources */,
 				AAF1FF0227FF2EFD009A6028 /* WeatherListModel.swift in Sources */,
 				AA9E299328145D9F0052F2A0 /* WeatherListProtocol.swift in Sources */,
 				AA9E2997281715D30052F2A0 /* Request.swift in Sources */,
 				AA3F57D027FC9C3400B49CE4 /* WeatherListViewController.swift in Sources */,
+				AAAC1C4128510BAB0045A4B1 /* LocationSelectorProtocol.swift in Sources */,
 				AA3F57CC27FC9C3400B49CE4 /* AppDelegate.swift in Sources */,
 				AA13F11D280B23DE00D508E8 /* NetworkManager.swift in Sources */,
+				AAAC1C3E28510ADA0045A4B1 /* LocationSelectorPresenter.swift in Sources */,
 				AA3F57CE27FC9C3400B49CE4 /* SceneDelegate.swift in Sources */,
 				AAF1FF0427FF3046009A6028 /* WeatherListPresenter.swift in Sources */,
 				AA3B8E1E28049B7700FD5B05 /* WeatherCell.swift in Sources */,
