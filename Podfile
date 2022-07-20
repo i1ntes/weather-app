@@ -6,5 +6,7 @@ target 'WeatherApp' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'ObjectMapper'
+  pod 'SDWebImage'
 
 end
