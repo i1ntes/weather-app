@@ -11,32 +11,41 @@ class LocationSelectorViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var SelectorTF: UITextField!
+    @IBOutlet weak var selectorTF: UITextField!
     
     private var presenter: LocationSelectorViewOutput?
-    var firstScreen: ModuleOutput?
+    var completion: ((String) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func showErrorMsg() {
+    static func start(nc: UINavigationController, completion: @escaping ((String) -> Void)) {
+        let storyboard = UIStoryboard(name: "LocationSelector", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "SecondScreen") as? LocationSelectorViewController else { return }
+        vc.completion = completion
+        nc.present(vc, animated: true)
+    }
+    
+    private func showErrorMsg() {
         let errorMsg = UIAlertController(title: "Error", message: "Введите название города", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
         errorMsg.addAction(action)
         self.present(errorMsg, animated: true)
     }
     
-    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+    @IBAction private func cancelButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
-    @IBAction func searchButtonTapped(_ sender: UIButton) {
-        guard let newCity = SelectorTF.text else { return }
-        if newCity == "" {
+    @IBAction private func searchButtonTapped(_ sender: UIButton) {
+        guard let city = selectorTF.text, !city.isEmpty else {
             showErrorMsg()
-        } else {
-            dismiss(animated: true)
+            return
+        }
+        
+        dismiss(animated: true) { [weak self] in
+            self?.completion?(city)
         }
     }
 }

@@ -19,6 +19,7 @@ class WeatherListPresenter {
     private weak var view: WeatherListViewInput?
     private let model: WeatherListModelProtocol
     private let networkManager = NetworkManager()
+    let secondScreen = LocationSelectorViewController()
     
     init(view: WeatherListViewInput, model: WeatherListModelProtocol) {
         self.view = view
@@ -26,13 +27,6 @@ class WeatherListPresenter {
     }
     
     // MARK: - Private methods
-    
-    private func getData() {
-        let params = ["key": Consts.apiKey, "q": Consts.city]
-        let request = Request(url: Consts.forecast, parameters: params, method: .get)
-        
-        networkManager.sendRequest(request: request, success: successBlock(_:), failure: failureBlock(_:))
-    }
     
     private func successBlock(_ response: [String: Any]?) {
         guard let response = response,
@@ -48,14 +42,15 @@ class WeatherListPresenter {
     }
 }
 
-extension WeatherListPresenter: ModuleOutput {
-    func addCity(city: String) {
-        }
-}
-
 extension WeatherListPresenter: WeatherListViewOutput {
-    
     func viewDidLoad() {
-        getData()
+        addCity(Consts.city)
+    }
+    
+    func addCity(_ city: String) {
+        let params = ["key": Consts.apiKey, "q": city]
+        let request = Request(url: Consts.forecast, parameters: params, method: .get)
+        
+        networkManager.sendRequest(request: request, success: successBlock(_:), failure: failureBlock(_:))
     }
 }

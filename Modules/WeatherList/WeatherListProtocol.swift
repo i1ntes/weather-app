@@ -16,12 +16,9 @@ protocol WeatherListViewInput: AnyObject {
 
 protocol WeatherListViewOutput {
     func viewDidLoad()
+    func addCity(_ city: String)
 }
 
 protocol WeatherListModelProtocol {
     func getModel(response: [String: Any]) -> WeatherListMO?
-}
-
-protocol ModuleOutput {
-    func addCity(city: String)
 }

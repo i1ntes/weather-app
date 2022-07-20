@@ -10,11 +10,9 @@ import Foundation
 class LocationSelectorPresenter {
     
     private weak var view: LocationSelectroViewInput?
-    let firstScreen: ModuleOutput
     
-    init(view: LocationSelectroViewInput, firstScreen: WeatherListPresenter) {
+    init(view: LocationSelectroViewInput) {
         self.view = view
-        self.firstScreen = firstScreen
     }
     
 }

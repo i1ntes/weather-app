@@ -38,9 +38,10 @@ class WeatherListViewController: UIViewController {
     }
     
     @objc func addButtonTapped() {
-        let storyboard = UIStoryboard(name: "LocationSelector", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SecondScreen")
-        self.present(vc, animated: true)
+        guard let nc = navigationController else { return }
+        LocationSelectorViewController.start(nc: nc) { city in
+            self.presenter?.addCity(city)
+        }
     }
     
     func startActivityIndicator() {
@@ -69,7 +70,6 @@ extension WeatherListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-//        view.backgroundColor = .red
         return view
     }
     
